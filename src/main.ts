@@ -6,18 +6,30 @@ const monsterArray: string[] = ["spaceGuy", "rabbit", "darth"];
 let isWaiting: boolean;
 
 function getNewMonster(): {} {
-  const nextMonsterData = characterData[monsterArray.shift()];
-  return nextMonsterData ? new Character(nextMonsterData) : {};
+  let opponent = monsterArray.shift();
+  if (opponent == "spaceGuy") {
+    const nextMonsterData = characterData["spaceGuy"];
+    return nextMonsterData ? new Character(nextMonsterData) : {};
+  }
+  if (opponent == "rabbit") {
+    const nextMonsterData = characterData["rabbit"];
+    return nextMonsterData ? new Character(nextMonsterData) : {};
+  }
+  if (opponent == "darth") {
+    const nextMonsterData = characterData["darth"];
+    return nextMonsterData ? new Character(nextMonsterData) : {};
+  }
+  return {};
 }
 
 function endGame() {
   isWaiting = true;
   const endMessage =
     Hero.health === 0 && Monster.health === 0
-      ? "No victors - all creatures are dead"
+      ? "No victors - all fighters are dead"
       : Hero.health > 0
-      ? "The Lego Batman Wins"
-      : "Star Wars are Victorious";
+      ? "Lego Batman Wins"
+      : "Bad guys Wins";
 
   const endEmoji = Hero.health > 0 ? "🦇" : "☠️";
   setTimeout(() => {

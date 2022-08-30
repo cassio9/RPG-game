@@ -7,7 +7,7 @@ const characterData = {
     currentDiceScore: [],
   },
   spaceGuy: {
-    name: "Space Guy",
+    name: "Space Trooper",
     avatar: "./src/img/spaceGuy.jpg",
     health: 30,
     diceCount: 1,
